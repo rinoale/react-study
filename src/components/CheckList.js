@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CheckList extends Component {
   render() {
-    const tasks = this.props.tasks.map((task) => (
+    const tasks = this.props.tasks.map(task => (
       <li key={task.id} className="checklist__task">
         <input type="checkbox" defaultChecked={task.done} />
         {task.name}
@@ -21,6 +22,10 @@ class CheckList extends Component {
       </div>
     );
   }
+}
+
+CheckList.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default CheckList;

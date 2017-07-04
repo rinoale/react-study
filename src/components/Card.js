@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Marked from 'marked';
 import CheckList from './CheckList';
 
@@ -32,7 +33,7 @@ class Card extends Component {
       bottom: 0,
       left: 0,
       width: 7,
-      backgroundColor: this.props.color
+      backgroundColor: this.props.color,
     };
 
     return (
@@ -49,6 +50,14 @@ class Card extends Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Card;
